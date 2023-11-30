@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PastGuesses({ pastGuesses }) {
+function GuessResults({ pastGuesses }) {
 	return (
 		<div className='guess-results'>
 			{pastGuesses.map(({ guess, id }) => (
@@ -12,4 +12,4 @@ function PastGuesses({ pastGuesses }) {
 	);
 }
 
-export default PastGuesses;
+export default GuessResults;
