@@ -1,7 +1,7 @@
 import React from 'react';
 import { NUM_OF_LETTERS_ALLOWED } from '../../constants';
 
-function Input({ addGuess }) {
+function Input({ addGuess, disabled = false }) {
 	const [input, setInput] = React.useState('');
 
 	function inputController(event) {
@@ -27,6 +27,7 @@ function Input({ addGuess }) {
 				title={`Must contain only ${NUM_OF_LETTERS_ALLOWED} letters`}
 				value={input}
 				onChange={inputController}
+				disabled={disabled}
 			/>
 		</form>
 	);
