@@ -1,4 +1,5 @@
 import React from 'react';
+import { NUM_OF_LETTERS_ALLOWED } from '../../constants';
 
 function Input({ addGuess }) {
 	const [input, setInput] = React.useState('');
@@ -18,7 +19,15 @@ function Input({ addGuess }) {
 	return (
 		<form className='guess-input-wrapper' onSubmit={handleFormSubmit}>
 			<label html-for='guess-input'>Enter guess:</label>
-			<input required id='guess-input' type='text' pattern='[A-Za-z]{5}' title='Must contain only 5 letters' value={input} onChange={inputController} />
+			<input
+				required
+				id='guess-input'
+				type='text'
+				pattern='[A-Za-z]{5}'
+				title={`Must contain only ${NUM_OF_LETTERS_ALLOWED} letters`}
+				value={input}
+				onChange={inputController}
+			/>
 		</form>
 	);
 }
