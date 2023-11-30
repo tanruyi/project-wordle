@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Input() {
+function Input({ addPastGuess }) {
 	const [input, setInput] = React.useState('');
 
 	function inputController(event) {
@@ -9,6 +9,8 @@ function Input() {
 
 	function handleFormSubmit(event) {
 		event.preventDefault();
+
+		addPastGuess(input);
 
 		console.info(input);
 
