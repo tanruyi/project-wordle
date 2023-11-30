@@ -18,7 +18,7 @@ function Input() {
 	return (
 		<form className='guess-input-wrapper' onSubmit={handleFormSubmit}>
 			<label html-for='guess-input'>Enter guess:</label>
-			<input id='guess-input' type='text' pattern='[A-Za-z]{5}' title='Must contain only 5 letters' value={input} onChange={inputController} />
+			<input required id='guess-input' type='text' pattern='[A-Za-z]{5}' title='Must contain only 5 letters' value={input} onChange={inputController} />
 		</form>
 	);
 }
