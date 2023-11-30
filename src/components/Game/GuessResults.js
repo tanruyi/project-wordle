@@ -7,7 +7,7 @@ function GuessResults({ pastGuesses }) {
 	return (
 		<div className='guess-results'>
 			{range(NUM_OF_GUESSES_ALLOWED).map((number) => (
-				<Guess key={number} value={pastGuesses[number] == undefined ? '' : pastGuesses[number]}></Guess>
+				<Guess key={number} value={pastGuesses[number]}></Guess>
 			))}
 		</div>
 	);
