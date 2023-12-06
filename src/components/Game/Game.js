@@ -24,8 +24,7 @@ function Game() {
 	const [gameStatus, setGameStatus] = React.useState('running');
 
 	function addGuess(newGuess) {
-		const nextGuess = checkGuess(newGuess, answer);
-		const newGuessList = [...pastGuesses, nextGuess];
+		const newGuessList = [...pastGuesses, newGuess];
 
 		setPastGuesses(newGuessList);
 
@@ -36,8 +35,11 @@ function Game() {
 		}
 	}
 
+	const validatedGuesses = pastGuesses.map((guess) => checkGuess(guess, answer));
+
 	function restartGame() {
-		setAnswer(() => sample(WORDS));
+		const newAnswer = sample(WORDS);
+		setAnswer(newAnswer);
 		setPastGuesses([]);
 		setGameStatus('running');
 	}
@@ -45,10 +47,10 @@ function Game() {
 	return (
 		<>
 			{gameStatus != 'running' && <RestartButton restartGame={restartGame}></RestartButton>}
-			<GuessResults pastGuesses={pastGuesses}></GuessResults>
+			<GuessResults validatedGuesses={validatedGuesses}></GuessResults>
 			<Input addGuess={addGuess} gameStatus={gameStatus}></Input>
 			{gameStatus != 'running' && <Banner type={gameStatus} numOfGuesses={pastGuesses.length} answer={answer}></Banner>}
-			<Keyboard pastGuesses={pastGuesses} />
+			<Keyboard validatedGuesses={validatedGuesses} />
 		</>
 	);
 }
